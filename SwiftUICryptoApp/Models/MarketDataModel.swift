@@ -181,15 +181,17 @@ struct MarketDataModel: Codable {
         case marketCapChangePercentage24HUsd = "market_cap_change_percentage_24h_usd"
     }
     
+    private var preferredCurrency: String { "sgd" }
+    
     var marketCap: String {
-        if let item = totalMarketCap.first(where: { $0.key == "usd" }) {
+        if let item = totalMarketCap.first(where: { $0.key == preferredCurrency }) {
             return "$" + item.value.formattedWithAbbreviations()
         }
         return ""
     }
     
     var volume: String {
-        if let item = totalVolume.first(where: { $0.key == "usd" }) {
+        if let item = totalVolume.first(where: { $0.key == preferredCurrency }) {
             return "$" + item.value.formattedWithAbbreviations()
         }
         return ""

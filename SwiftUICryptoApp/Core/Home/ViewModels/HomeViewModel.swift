@@ -62,12 +62,12 @@ class HomeViewModel: ObservableObject {
         marketDataService.$marketData
             .combineLatest($portfolioCoins)
             .map(mapGlobalMarketData)
+            .receive(on: DispatchQueue.main)    
             .sink { [weak self] (returnedStats) in
                 self?.statistics = returnedStats
                 self?.isLoading = false
             }
             .store(in: &cancellables)
-        
         
     }
     

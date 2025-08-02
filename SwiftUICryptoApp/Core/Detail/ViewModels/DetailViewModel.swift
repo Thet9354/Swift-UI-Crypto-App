@@ -58,18 +58,18 @@ class DetailViewModel: ObservableObject {
     
     private func createOverviewArray(coinModel: CoinModel) -> [StatisticModel] {
         
-        let price = coinModel.currentPrice.asCurrencyWith6Decimals()
+        let price = "S$" + coinModel.currentPrice.asCurrencyWith6Decimals()
         let pricePercentChange = coinModel.priceChangePercentage24H
         let pricestat = StatisticModel(title: "Current Price", value: price, percentageChange: pricePercentChange)
         
-        let marketCap = "$" + (coinModel.marketCap?.formattedWithAbbreviations() ?? "")
+        let marketCap = "S$" + (coinModel.marketCap?.formattedWithAbbreviations() ?? "")
         let marketCapPercentChange = coinModel.marketCapChangePercentage24H
         let marketCapStat = StatisticModel(title: "Market Capitalization", value: marketCap, percentageChange: marketCapPercentChange)
         
-        let rank = "\(coinModel.rank)"
+        let rank = "# \(coinModel.rank)"
         let rankStat = StatisticModel(title: "Rank", value: rank)
         
-        let volume = "$" + (coinModel.totalVolume?.formattedWithAbbreviations() ?? "")
+        let volume = "S$" + (coinModel.totalVolume?.formattedWithAbbreviations() ?? "")
         let volumeStat = StatisticModel(title: "Volume", value: volume)
         
         let overviewArray: [StatisticModel] = [
@@ -91,7 +91,7 @@ class DetailViewModel: ObservableObject {
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange)
         
-        let marketCapChange = "$" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
+        let marketCapChange = "S$" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
         let marketCapPercentChange = coinModel.marketCapChangePercentage24H
         let marketCapChangeStat = StatisticModel(title: "24h Market Cap Change", value: marketCapChange, percentageChange: marketCapPercentChange)
         

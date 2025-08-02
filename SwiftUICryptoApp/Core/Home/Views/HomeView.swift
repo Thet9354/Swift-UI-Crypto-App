@@ -73,7 +73,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             HomeView()
                 .navigationBarHidden(true)
         }
@@ -86,7 +86,6 @@ extension HomeView {
     private var homeHeader: some View {
         HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
-                .animation(.none)
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()

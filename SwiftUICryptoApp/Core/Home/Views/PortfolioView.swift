@@ -39,11 +39,11 @@ struct PortfolioView: View {
                     trailingNavBarButtons
                 }
             })
-            .onChange(of: vm.searchText, perform: { value in
-                if value == "" {
+            .onChange(of: vm.searchText) { oldValue, newValue in
+                if newValue == "" {
                     removeSelectedCoin()
                 }
-            })
+            }
         }
         
     }
@@ -124,7 +124,6 @@ extension PortfolioView {
                 Text(getCurrentValue().asCurrencyWith2Decimals())
             }
         }
-        .animation(.none)
         .padding()
         .font(.headline)
     }

@@ -138,7 +138,7 @@ extension DetailView {
     private var overviewGrid: some View {
         LazyVGrid(
             columns: columns,
-            alignment: .center,
+            alignment: .leading,
             spacing: spacing,
             pinnedViews: [],
             content: {
@@ -151,7 +151,7 @@ extension DetailView {
     private var additionalGrid: some View {
         LazyVGrid(
             columns: columns,
-            alignment: .center,
+            alignment: .leading,
             spacing: spacing,
             pinnedViews: [],
             content: {
